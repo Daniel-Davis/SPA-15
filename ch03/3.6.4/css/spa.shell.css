@@ -13,13 +13,13 @@
   top    : 0;
   left   : 0;
   right  : 0;
-  height : 40px;
+  height : 70px;
 }
 .spa-shell-head-logo {
   top        : 4px;
   left       : 4px;
   height     : 32px;
-  width      : 128px;
+  width      : 228px;
   background : orange;
 }
 .spa-shell-head-acct {
@@ -27,14 +27,14 @@
   right      : 0;
   width      : 64px;
   height     : 32px;
-  background : green;
+  background : purple;
 }
 .spa-shell-head-search {
   top        : 4px;
   right      : 64px;
   width      : 248px;
   height     : 32px;
-  background : blue;
+  background : pink;
 }
 
 .spa-shell-main {
@@ -50,7 +50,7 @@
 }
 .spa-shell-main-nav {
   width  : 250px;
-  background : #eee;
+  background : grey;
 }
   .spa-x-closed .spa-shell-main-nav {
     width  : 0;
@@ -59,7 +59,7 @@
 .spa-shell-main-content {
   left  : 250px;
   right : 0;
-  background : #ddd;
+  background : plum;
 }
   .spa-x-closed .spa-shell-main-content {
     left : 0;
@@ -82,7 +82,7 @@
   z-index       : 1;
 }
   .spa-shell-chat:hover {
-    background : #a00;
+    background : brown;
   }
 
 .spa-shell-modal {
