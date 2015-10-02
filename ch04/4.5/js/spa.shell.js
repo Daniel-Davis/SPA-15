@@ -16,7 +16,11 @@ spa.shell = (function () {
   var
     configMap = {
       anchor_schema_map : {
+<<<<<<< HEAD
         chat  : { opened : true, closed : true, hidden : true }
+=======
+        chat  : { opened : true, closed : true }
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
       },
       resize_interval : 200,
       main_html : String()
@@ -168,9 +172,12 @@ spa.shell = (function () {
         case 'closed' :
           is_ok = spa.chat.setSliderPosition( 'closed' );
         break;
+<<<<<<< HEAD
          case 'hidden' :
           is_ok = spa.chat.setSliderPosition( 'hidden' );
         break;
+=======
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
         default :
           spa.chat.setSliderPosition( 'closed' );
           delete anchor_map_proposed.chat;
@@ -255,7 +262,10 @@ spa.shell = (function () {
     setJqueryMap();
 
     // configure uriAnchor to use our schema
+<<<<<<< HEAD
     // console.log(configMap.anchor_schema_map);
+=======
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     $.uriAnchor.configModule({
       schema_map : configMap.anchor_schema_map
     });

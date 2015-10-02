@@ -18,7 +18,11 @@ spa.chat = (function () {
     configMap = {
       main_html : String()
         + '<div style="padding:1em; color:#fff;">'
+<<<<<<< HEAD
           + 'Ya wanna chat?'
+=======
+          + 'Say hello to chat'
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
         + '</div>',
       settable_map : {}
     },

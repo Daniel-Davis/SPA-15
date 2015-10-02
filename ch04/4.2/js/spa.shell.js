@@ -16,7 +16,11 @@ spa.shell = (function () {
   var
     configMap = {
       anchor_schema_map : {
+<<<<<<< HEAD
         chat  : { open : true, closed : true, grokked : true }
+=======
+        chat  : { open : true, closed : true }
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
       },
       main_html : String()
         + '<div class="spa-shell-head">'
@@ -36,8 +40,12 @@ spa.shell = (function () {
       chat_extend_height   : 450,
       chat_retract_height  : 15,
       chat_extended_title  : 'Click to retract',
+<<<<<<< HEAD
       chat_retracted_title : 'Click to extend',
       chat_silly_title	   : 'Be silly for a bit'
+=======
+      chat_retracted_title : 'Click to extend'
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     },
     stateMap  = {
       $container        : null,
@@ -238,11 +246,14 @@ spa.shell = (function () {
         case 'closed' :
           toggleChat( false );
         break;
+<<<<<<< HEAD
 	case 'grokked' :
 	  toggleChat( true );
 	  jqueryMap.$chat
       	    .attr( 'title', configMap.chat_silly_title);
 	break;
+=======
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
         default  :
           toggleChat( false );
           delete anchor_map_proposed.chat;

@@ -35,8 +35,13 @@ spa.shell = (function () {
       chat_retract_time    : 300,
       chat_extend_height   : 450,
       chat_retract_height  : 15,
+<<<<<<< HEAD
       chat_extended_title  : 'Click to pull down',
       chat_retracted_title : 'Click to make bigger'
+=======
+      chat_extended_title  : 'Click to retract',
+      chat_retracted_title : 'Click to extend'
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     },
     stateMap  = {
       $container        : null,
@@ -155,20 +160,30 @@ spa.shell = (function () {
 
     // Begin merge changes into anchor map
     KEYVAL:
+<<<<<<< HEAD
     // Process each property in arg_map
     for ( key_name in arg_map ) {
       // Do not deal with properties of parents up the prototype
+=======
+    for ( key_name in arg_map ) {
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
       if ( arg_map.hasOwnProperty( key_name ) ) {
 
         // skip dependent keys during iteration
         if ( key_name.indexOf( '_' ) === 0 ) { continue KEYVAL; }
 
         // update independent key value
+<<<<<<< HEAD
         // i.e. Replace the current value with the one passed in as a parameter
         anchor_map_revise[key_name] = arg_map[key_name];
 
         // update matching dependent key
         // This handles stuff BEYOND the "key=value" part of the anchor
+=======
+        anchor_map_revise[key_name] = arg_map[key_name];
+
+        // update matching dependent key
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
         key_name_dep = '_' + key_name;
         if ( arg_map[key_name_dep] ) {
           anchor_map_revise[key_name_dep] = arg_map[key_name_dep];
@@ -182,12 +197,19 @@ spa.shell = (function () {
     // End merge changes into anchor map
 
     // Begin attempt to update URI; revert if not successful
+<<<<<<< HEAD
     // Note that this is a jQuery service call
+=======
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     try {
       $.uriAnchor.setAnchor( anchor_map_revise );
     }
     catch ( error ) {
+<<<<<<< HEAD
       // replace URI with existing state if the revised version fails
+=======
+      // replace URI with existing state
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
       $.uriAnchor.setAnchor( stateMap.anchor_map,null,true );
       bool_return = false;
     }
@@ -218,15 +240,25 @@ spa.shell = (function () {
       _s_chat_previous, _s_chat_proposed,
       s_chat_proposed;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     // attempt to parse anchor
     try { anchor_map_proposed = $.uriAnchor.makeAnchorMap(); }
     catch ( error ) {
       $.uriAnchor.setAnchor( anchor_map_previous, null, true );
+<<<<<<< HEAD
 
       return false;
     }
     stateMap.anchor_map = anchor_map_proposed;
+=======
+      return false;
+    }
+    stateMap.anchor_map = anchor_map_proposed;
+
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     // convenience vars
     _s_chat_previous = anchor_map_previous._s_chat;
     _s_chat_proposed = anchor_map_proposed._s_chat;
@@ -250,6 +282,10 @@ spa.shell = (function () {
       }
     }
     // End adjust chat component if changed
+<<<<<<< HEAD
+=======
+
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
     return false;
   };
   // End Event handler /onHashchange/

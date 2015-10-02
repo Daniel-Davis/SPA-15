@@ -15,7 +15,11 @@ var spa = (function () {
   var initModule = function ( $container ) {
     $container.html(
       '<h1 style="display:inline-block; margin:25px;">'
+<<<<<<< HEAD
         + 'Cool cat, lookin for a kitty'
+=======
+        + 'hello world!'
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
       + '</h1>'
     );
   };

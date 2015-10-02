@@ -29,7 +29,11 @@ spa.chat = (function () {
             + '<div class="spa-chat-msgs"></div>'
             + '<div class="spa-chat-box">'
               + '<input type="text"/>'
+<<<<<<< HEAD
               + '<div>emit</div>'
+=======
+              + '<div>send</div>'
+>>>>>>> 039aeaf7f6e22352497486bd0623a99cab469fa9
             + '</div>'
           + '</div>'
         + '</div>',
