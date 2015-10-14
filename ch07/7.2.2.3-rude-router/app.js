@@ -14,8 +14,8 @@ var http, server;
 
 http   = require( 'http' );
 server = http.createServer( function ( request, response ) {
-  var response_text = request.url === '/brian'
-    ? 'It takes a big flea to weigh a milligram'
+  var response_text = request.url === '/test'
+    ? 'you have hit the test page'
     : 'Hello World';
   response.writeHead( 200, { 'Content-Type': 'text/plain' } );
   response.end( response_text );

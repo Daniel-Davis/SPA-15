@@ -12,49 +12,18 @@
 
 // ------------ BEGIN MODULE SCOPE VARIABLES --------------
 'use strict';
-var configRoutes, ensureAuthenticated;
-
+var configRoutes;
 // ------------- END MODULE SCOPE VARIABLES ---------------
 
 // ---------------- BEGIN PUBLIC METHODS ------------------
-configRoutes = function ( app, server, passport) {
-
-//  app.all( '/*', function ( request, response, next ) {
-//   basic.apply(request, response, function(username) {
-//     next();
-//    });
-//  }); 
-
-    app.get('/auth/google', passport.authenticate('google', {failureRedirect: '/login' }),
-	function(request, response, next) {
-	   next();
-	   });
-
-//  app.get('/auth/google/return', 
-//  passport.authenticate('google', { successRedirect: '/',
-//                                    failureRedirect: '/login' }));
-
-//  app.get('/auth/google/return', 
-//  passport.authenticate('google', { failureRedirect: '/login' }),
-//  function(req, res) {
-//    res.redirect('/spa.html');
-//  });
-
-  app.get( '/auth/google/return', function ( request, response, next ) {
-       passport.authenticate('google', {successRedirect: '/spa.html', failureRedirect: '/login'}); 
-  });
-
-  app.get('/login', function(request, response ) {
-	reponse.redirect('/auth/google' );
+configRoutes = function ( app, server ) {
+  app.get( '/', function ( request, response ) {
+    response.redirect( '/spa.html' );
   });
 
   app.all( '/:obj_type/*?', function ( request, response, next ) {
     response.contentType( 'json' );
     next();
-  });
-
-  app.get( '/', function ( request, response ) {
-        response.redirect( '/spa.html' );
   });
 
   app.get( '/:obj_type/list', function ( request, response ) {
@@ -65,16 +34,12 @@ configRoutes = function ( app, server, passport) {
     response.send({ title: request.params.obj_type + ' created' });
   });
 
-    app.get( '/:obj_type/read/:id([0-9]+)',
-    function ( request, response , next ) {
-     if(request.isAuthenticated()) { 
-      console.log( 'User is in fact authenticated' );
+  app.get( '/:obj_type/read/:id([0-9]+)',
+    function ( request, response ) {
       response.send({
         title: request.params.obj_type
           + ' with id ' + request.params.id + ' found'
       });
-     } 
-    response.redirect( '/auth/google' );
     }
   );
 
@@ -93,12 +58,6 @@ configRoutes = function ( app, server, passport) {
         title: request.params.obj_type
           + ' with id ' + request.params.id + ' deleted'
       });
-
-  function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) { return next(); }
-    res.redirect('/login')
-    }
-
     }
   );
 };

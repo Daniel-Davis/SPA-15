@@ -2,14 +2,6 @@
   "version" : "0.0.3",
   "private" : true,
   "dependencies" : {
-    "express"   : "4.x",
-    "body-parser": "~1.0.0",
-    "method-override": "~1.0.0",
-    "morgan"	: "1.3.x",
-    "errorhandler" : "1.2.x",
-    "http-auth": "1.x",
-    "socket.io": "1.1.x",
-    "passport":	"0.1.x",
-    "passport-google": "0.3.x"
+    "express"   : "3.2.x"
   }
 }

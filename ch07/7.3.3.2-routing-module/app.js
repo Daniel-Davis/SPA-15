@@ -16,61 +16,32 @@ var
   http    = require( 'http'     ),
   express = require( 'express'  ),
   routes  = require( './routes' ),
-  passport = require( 'passport' ),
-  morgan = require( 'morgan' ),
-  bodyParser = require( 'body-parser' ),
-  methodOverride = require( 'method-override' ),
-  errorHandler = require( 'errorhandler' ),
-  auth = require( 'http-auth' ),
+
   app     = express(),
   server  = http.createServer( app );
-  passport.initialize();
-  passport.session();
-var  GoogleStrategy = require('passport-google').Strategy;
-  passport.use(new GoogleStrategy({
-  returnURL: 'http://localhost:3000/auth/google/return',
-  realm: 'http://localhost:3000/'
-},
-  function(identifier, profile, done) {
-      console.log('Called back: ', identifier);
-      console.log('With profile: ',profile);
-      // return( done, 'Authenticated' );      
-    })
-);
-
-passport.serializeUser(function(user, done) {
-  console.log( 'In serialize' );
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  console.log( 'In deserialize' );  
-  done(null, obj);
-});
-
 // ------------- END MODULE SCOPE VARIABLES ---------------
 
 // ------------- BEGIN SERVER CONFIGURATION ---------------
-  app.use( bodyParser.urlencoded() );
-  app.use( methodOverride() );
+app.configure( function () {
+  app.use( express.bodyParser() );
+  app.use( express.methodOverride() );
   app.use( express.static( __dirname + '/public' ) );
-  app.use( morgan( 'common' ) );
-  app.use( errorHandler() );
+  app.use( app.router );
+});
 
-var env = process.env.NODE_ENV || 'development';
-if ('development' == env) {
-  app.use( errorHandler({
+app.configure( 'development', function () {
+  app.use( express.logger() );
+  app.use( express.errorHandler({
     dumpExceptions : true,
     showStack      : true
   }) );
-};
+});
 
-var env = process.env.NODE_ENV || 'production';
-if ('development' == env) {
-  app.use( errorHandler() );
-};
+app.configure( 'production', function () {
+  app.use( express.errorHandler() );
+});
 
-routes.configRoutes( app, server, passport);
+routes.configRoutes( app, server );
 // -------------- END SERVER CONFIGURATION ----------------
 
 // ----------------- BEGIN START SERVER -------------------

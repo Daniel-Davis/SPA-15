@@ -24,7 +24,7 @@ connectHello = function ( request, response, next ) {
 };
 
 app
-  .use(require( 'connect-logger') ())
+  .use( connect.logger() )
   .use( connectHello     );
 server = http.createServer( app );
 
