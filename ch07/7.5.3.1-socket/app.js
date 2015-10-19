@@ -23,23 +23,23 @@ var
 
 // ------------- BEGIN SERVER CONFIGURATION ---------------
 app.configure( function () {
-  app.use( express.bodyParser() );
-  app.use( express.methodOverride() );
+  app.use( express.bodyParser() ); //body-parser
+  app.use( express.methodOverride() ); //this needs changed to method-override
   app.use( express.basicAuth( 'user', 'spa' ) );
-  app.use( express.static( __dirname + '/public' ) );
+  app.use( express.static( __dirname + '/public' ) ); //serve-static
   app.use( app.router );
 });
 
 app.configure( 'development', function () {
-  app.use( express.logger() );
-  app.use( express.errorHandler({
+  app.use( express.logger() ); //morgan
+  app.use( express.errorHandler({ //errorhandler
     dumpExceptions : true,
     showStack      : true
   }) );
 });
 
 app.configure( 'production', function () {
-  app.use( express.errorHandler() );
+  app.use( express.errorHandler() ); //errorhandler
 });
 
 routes.configRoutes( app, server );
